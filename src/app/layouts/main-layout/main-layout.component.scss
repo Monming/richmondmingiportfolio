@@ -1,0 +1,31 @@
+/* Main Layout - IT Manager minimalist aesthetic */
+ion-menu {
+  --background: var(--ion-background-color);
+  --min-width: 240px;
+  --max-width: 280px;
+}
+
+ion-toolbar {
+  --background: transparent;
+}
+
+/* Bottom tab bar - show on mobile, hide on md+ (sidebar takes over) */
+.tab-bar-mobile {
+  display: flex;
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
+/* Main content area */
+.main-content {
+  flex: 1;
+}
+
+/* Active nav item highlight */
+ion-item.nav-item.active,
+ion-item.active {
+  --background: var(--ion-color-step-150);
+  --color: var(--ion-color-primary);
+}

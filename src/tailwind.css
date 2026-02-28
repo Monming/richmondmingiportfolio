@@ -1,0 +1,65 @@
+/**
+ * Tailwind CSS v4 Entry
+ * Import Tailwind and map theme to Ionic CSS variables.
+ * This file is processed by PostCSS and imported from global.scss.
+ */
+@import 'tailwindcss';
+
+/**
+ * Map Tailwind theme colors to Ionic CSS variables.
+ * Use bg-primary, text-primary, etc. in components; they resolve to --ion-color-*.
+ * Shadow DOM: Tailwind classes only apply to light DOM; Ionic components use their own vars.
+ */
+@theme {
+  /* Primary - maps to Ionic primary */
+  --color-primary: var(--ion-color-primary);
+  --color-primary-contrast: var(--ion-color-primary-contrast);
+  --color-primary-shade: var(--ion-color-primary-shade);
+  --color-primary-tint: var(--ion-color-primary-tint);
+
+  /* Secondary */
+  --color-secondary: var(--ion-color-secondary);
+  --color-secondary-contrast: var(--ion-color-secondary-contrast);
+
+  /* Tertiary */
+  --color-tertiary: var(--ion-color-tertiary);
+  --color-tertiary-contrast: var(--ion-color-tertiary-contrast);
+
+  /* Success, Warning, Danger */
+  --color-success: var(--ion-color-success);
+  --color-warning: var(--ion-color-warning);
+  --color-danger: var(--ion-color-danger);
+
+  /* Background & Surface */
+  --color-background: var(--ion-background-color);
+  --color-surface: var(--ion-background-color);
+  --color-step-50: var(--ion-color-step-50);
+  --color-step-100: var(--ion-color-step-100);
+  --color-step-150: var(--ion-color-step-150);
+  --color-step-200: var(--ion-color-step-200);
+  --color-step-250: var(--ion-color-step-250);
+  --color-step-300: var(--ion-color-step-300);
+  --color-step-350: var(--ion-color-step-350);
+  --color-step-400: var(--ion-color-step-400);
+  --color-step-450: var(--ion-color-step-450);
+  --color-step-500: var(--ion-color-step-500);
+  --color-step-550: var(--ion-color-step-550);
+  --color-step-600: var(--ion-color-step-600);
+  --color-step-650: var(--ion-color-step-650);
+  --color-step-700: var(--ion-color-step-700);
+  --color-step-750: var(--ion-color-step-750);
+  --color-step-800: var(--ion-color-step-800);
+  --color-step-850: var(--ion-color-step-850);
+  --color-step-900: var(--ion-color-step-900);
+  --color-step-950: var(--ion-color-step-950);
+
+  /* Text */
+  --color-text: var(--ion-text-color);
+  --color-text-muted: var(--ion-color-step-550);
+
+  /* Border radius - subtle, professional */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+}

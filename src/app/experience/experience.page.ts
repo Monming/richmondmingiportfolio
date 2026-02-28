@@ -16,9 +16,9 @@ import {
 } from '@ionic/angular/standalone';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: 'app-experience',
+  templateUrl: './experience.page.html',
+  styleUrls: ['./experience.page.scss'],
   imports: [
     IonHeader,
     IonToolbar,
@@ -35,6 +35,6 @@ import {
     IonCardContent,
   ],
 })
-export class HomePage {
+export class ExperiencePage {
   constructor() {}
 }
