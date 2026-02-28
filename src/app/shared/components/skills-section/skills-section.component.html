@@ -1,0 +1,23 @@
+<div class="skills-grid">
+  @for (skill of skills(); track skill.name) {
+    <div class="skill-card">
+      <div class="skill-label-row">
+        <span class="skill-name">{{ skill.name }}</span>
+        <span class="skill-pct" aria-label="{{ skill.name }}: {{ skill.level }} percent">{{ skill.level }}%</span>
+      </div>
+      <div
+        class="skill-bar-track"
+        role="progressbar"
+        [attr.aria-valuenow]="skill.level"
+        aria-valuemin="0"
+        aria-valuemax="100"
+        [attr.aria-label]="skill.name + ' skill level ' + skill.level + ' percent'"
+      >
+        <div
+          class="skill-bar-fill"
+          [style.width]="skill.width"
+        ></div>
+      </div>
+    </div>
+  }
+</div>

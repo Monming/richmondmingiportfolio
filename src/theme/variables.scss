@@ -31,11 +31,10 @@
   --ion-font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    --ion-background-color: #ffffff;
-    --ion-background-color-rgb: 255, 255, 255;
-    --ion-text-color: #0f172a;
-    --ion-text-color-rgb: 15, 23, 42;
-  }
+/* Light mode - when .dark class is NOT on html (theme toggle) */
+html:not(.dark) {
+  --ion-background-color: #ffffff;
+  --ion-background-color-rgb: 255, 255, 255;
+  --ion-text-color: #0f172a;
+  --ion-text-color-rgb: 15, 23, 42;
 }

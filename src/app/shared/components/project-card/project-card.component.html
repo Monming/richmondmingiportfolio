@@ -1,4 +1,9 @@
-<ion-card class="glass-card rounded-xl overflow-hidden ion-no-margin transition-all duration-300 hover:border-emerald-500/30">
+<ion-card class="glass-card project-card rounded-xl overflow-hidden ion-no-margin transition-all duration-300 hover:border-emerald-500/30 hover:shadow-lg hover:shadow-emerald-500/10 hover:-translate-y-1">
+  @if (project().imageUrl) {
+    <div class="relative w-full h-36 overflow-hidden bg-slate-800/50">
+      <img [src]="project().imageUrl" [alt]="project().title" class="w-full h-full object-cover object-top" />
+    </div>
+  }
   <ion-card-header class="pb-2">
     <div class="flex flex-wrap items-center gap-2 mb-1">
       <ion-card-title class="text-lg font-semibold text-slate-100">{{ project().title }}</ion-card-title>
@@ -9,12 +14,12 @@
   <ion-card-content class="pt-0">
     <div class="flex flex-wrap gap-1.5 mb-3">
       @for (tech of project().tech; track tech) {
-        <span class="text-xs px-2 py-1 rounded-md bg-slate-700/50 text-slate-300">{{ tech }}</span>
+        <span class="text-xs px-2 py-1 rounded-md bg-slate-700/50 text-slate-300 transition-all duration-200 hover:bg-emerald-500/20 hover:text-emerald-400">{{ tech }}</span>
       }
     </div>
     <p class="text-sm text-slate-400 leading-relaxed mb-3">{{ project().description }}</p>
-    @if (project().objectives.length) {
-      <div>
+    @if (project().objectives && project().objectives.length) {
+      <div class="mb-3">
         <button
           type="button"
           (click)="toggleObjectives()"
@@ -32,5 +37,12 @@
         }
       </div>
     }
+    <button
+      type="button"
+      (click)="onViewCaseStudy()"
+      class="text-sm font-medium text-emerald-400 hover:text-emerald-300 border border-emerald-500/40 hover:border-emerald-500 rounded px-3 py-2 transition-all duration-200 hover:shadow-sm hover:shadow-emerald-500/20"
+    >
+      View Case Study
+    </button>
   </ion-card-content>
 </ion-card>

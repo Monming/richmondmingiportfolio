@@ -1,25 +1,47 @@
 <ion-content [fullscreen]="true" class="portfolio-content">
   <div class="portfolio-sections">
     <!-- Hero -->
-    <section class="hero min-h-screen flex items-center">
-      <div class="section-inner">
+    <section class="hero min-h-screen flex items-center relative overflow-hidden">
+      <div class="hero-gradient"></div>
+      <div class="hero-badges">
+        @for (badge of heroTechBadges; track badge; let i = $index) {
+          <span
+            class="hero-badge"
+            [style.animation-delay]="(i * 0.5) + 's'"
+          >{{ badge }}</span>
+        }
+      </div>
+      <div class="section-inner relative z-10" appScrollReveal>
         <p class="hero-greeting text-emerald-400 text-sm font-mono mb-4">Hi, my name is</p>
         <h1 class="hero-name text-5xl md:text-7xl font-bold text-slate-100 mb-2">Richmond Mingi.</h1>
-        <h2 class="hero-title text-4xl md:text-6xl font-bold text-slate-500 mb-6">Software Developer | IT Solutions Manager.</h2>
+        <h2 class="hero-title text-4xl md:text-6xl font-bold text-slate-500 mb-6">
+          <span class="typing-text">Software Developer | IT Solutions Manager.</span>
+          <span class="typing-cursor">|</span>
+        </h2>
         <p class="hero-summary text-slate-400 max-w-2xl text-lg leading-relaxed mb-10">
           I build scalable software solutions and manage IT infrastructure for enterprises.
           Expert in Ionic Angular, Node.js, and PostgreSQL.
         </p>
         <div class="flex flex-wrap gap-4">
-          <a href="#projects" class="btn-primary px-6 py-3 rounded text-sm font-medium">View Projects</a>
+          <a href="#projects" class="btn-primary px-6 py-3 rounded text-sm font-medium hover-glow">View Projects</a>
           <a href="#contact" class="btn-secondary px-6 py-3 rounded text-sm font-medium">Contact Me</a>
           <a href="#" class="btn-secondary px-6 py-3 rounded text-sm font-medium">Download CV</a>
         </div>
       </div>
+      <div class="scroll-indicator">
+        <span class="scroll-dot"></span>
+      </div>
+    </section>
+
+    <!-- Developer Stats -->
+    <section class="section py-16 md:py-20" appScrollReveal [delay]="100">
+      <div class="section-inner">
+        <app-developer-stats />
+      </div>
     </section>
 
     <!-- About -->
-    <section id="about" class="section py-20 md:py-32">
+    <section id="about" class="section py-20 md:py-32" appScrollReveal>
       <div class="section-inner">
         <h2 class="section-heading flex items-center gap-4 mb-12">
           <span class="section-num text-emerald-400 font-mono text-lg">01.</span>
@@ -44,7 +66,7 @@
             <p class="text-slate-400 text-sm mb-3">Technical Skills</p>
             <div class="flex flex-wrap gap-2 mb-6">
               @for (skill of technicalSkills; track skill) {
-                <span class="px-3 py-1.5 rounded text-sm bg-slate-800/80 text-slate-300">{{ skill }}</span>
+                <span class="px-3 py-1.5 rounded text-sm bg-slate-800/80 text-slate-300 hover:bg-emerald-500/20 transition-colors">{{ skill }}</span>
               }
             </div>
             <p class="text-slate-400 text-sm mb-3">Personal Skills</p>
@@ -58,8 +80,30 @@
       </div>
     </section>
 
+    <!-- Skills Section -->
+    <section id="skills" class="section py-20 md:py-32" appScrollReveal>
+      <div class="section-inner">
+        <h2 class="section-heading flex items-center gap-4 mb-12">
+          <span class="section-num text-emerald-400 font-mono text-lg">01b.</span>
+          <span class="section-title text-2xl font-semibold text-slate-100">Skills</span>
+        </h2>
+        <app-skills-section />
+      </div>
+    </section>
+
+    <!-- Architecture -->
+    <section id="architecture" class="section py-20 md:py-32" appScrollReveal>
+      <div class="section-inner">
+        <h2 class="section-heading flex items-center gap-4 mb-12">
+          <span class="section-num text-emerald-400 font-mono text-lg">01c.</span>
+          <span class="section-title text-2xl font-semibold text-slate-100">How I Build Systems</span>
+        </h2>
+        <app-architecture-diagram />
+      </div>
+    </section>
+
     <!-- Experience -->
-    <section id="experience" class="section py-20 md:py-32">
+    <section id="experience" class="section py-20 md:py-32" appScrollReveal>
       <div class="section-inner">
         <h2 class="section-heading flex items-center gap-4 mb-12">
           <span class="section-num text-emerald-400 font-mono text-lg">02.</span>
@@ -67,42 +111,48 @@
         </h2>
         <div class="space-y-12">
           @for (role of roles; track role.num) {
-            <div class="relative pl-8 border-l-2 border-slate-700">
-              <span class="absolute -left-3 top-0 w-4 h-4 rounded-full bg-emerald-500"></span>
-              <div class="flex flex-wrap items-baseline gap-2 mb-2">
-                <span class="text-slate-100 font-semibold">{{ role.title }}</span>
-                <span class="text-emerald-400">@ {{ role.company }}</span>
-              </div>
-              <p class="text-slate-500 text-sm font-mono mb-3">{{ role.period }}</p>
-              <p class="text-slate-400 leading-relaxed mb-4">{{ role.description }}</p>
-              <div class="flex flex-wrap gap-2">
-                @for (tech of role.tech; track tech) {
-                  <span class="px-2 py-1 rounded text-xs bg-slate-800/80 text-slate-400 font-mono">{{ tech }}</span>
-                }
-              </div>
-            </div>
+            <app-timeline-item [role]="role" />
           }
         </div>
       </div>
     </section>
 
     <!-- Projects -->
-    <section id="projects" class="section py-20 md:py-32">
+    <section id="projects" class="section py-20 md:py-32" appScrollReveal>
       <div class="section-inner">
         <h2 class="section-heading flex items-center gap-4 mb-12">
           <span class="section-num text-emerald-400 font-mono text-lg">03.</span>
           <span class="section-title text-2xl font-semibold text-slate-100">Projects</span>
         </h2>
+        <div class="flex flex-wrap gap-2 mb-6">
+          @for (opt of filterOptions; track opt) {
+            <button
+              type="button"
+              (click)="setTechFilter(opt)"
+              class="px-4 py-2 rounded-lg text-sm font-medium transition-all"
+              [class.bg-emerald-500]="techFilter() === opt"
+              [class.text-white]="techFilter() === opt"
+              [class.bg-slate-800]="techFilter() !== opt"
+              [class.text-slate-400]="techFilter() !== opt"
+              [class.hover:bg-emerald-500/20]="techFilter() !== opt"
+            >
+              {{ opt }}
+            </button>
+          }
+        </div>
         <div class="grid md:grid-cols-2 gap-6">
-          @for (project of allProjects; track project.title) {
-            <app-project-card [project]="project" />
+          @for (project of filteredProjects(); track project.title) {
+            <app-project-card
+              [project]="project"
+              (viewCaseStudy)="onViewCaseStudy($event)"
+            />
           }
         </div>
       </div>
     </section>
 
     <!-- Education -->
-    <section id="education" class="section py-20 md:py-32">
+    <section id="education" class="section py-20 md:py-32" appScrollReveal>
       <div class="section-inner">
         <h2 class="section-heading flex items-center gap-4 mb-12">
           <span class="section-num text-emerald-400 font-mono text-lg">04.</span>
@@ -110,7 +160,7 @@
         </h2>
         <div class="space-y-6">
           @for (edu of education; track edu.school) {
-            <div class="glass-card rounded-lg p-6">
+            <div class="glass-card rounded-lg p-6 transition-all hover:border-emerald-500/20" appScrollReveal>
               <div class="flex flex-wrap justify-between items-baseline gap-2 mb-1">
                 <h3 class="text-slate-100 font-semibold">{{ edu.degree }}</h3>
                 <span class="text-emerald-400 text-sm font-mono">{{ edu.period }}</span>
@@ -123,7 +173,7 @@
     </section>
 
     <!-- Contact -->
-    <section id="contact" class="section py-20 md:py-32">
+    <section id="contact" class="section py-20 md:py-32" appScrollReveal>
       <div class="section-inner max-w-xl">
         <h2 class="section-heading flex items-center gap-4 mb-4">
           <span class="section-num text-emerald-400 font-mono text-lg">05.</span>
@@ -142,51 +192,32 @@
         </div>
         <form (ngSubmit)="onSubmit()" class="space-y-4">
           <ion-item lines="none" class="glass-card rounded-lg">
-            <ion-input
-              label="Name"
-              labelPlacement="stacked"
-              [(ngModel)]="form.name"
-              name="name"
-              placeholder="Your name"
-            ></ion-input>
+            <ion-input label="Name" labelPlacement="stacked" [(ngModel)]="form.name" name="name" placeholder="Your name"></ion-input>
           </ion-item>
           <ion-item lines="none" class="glass-card rounded-lg">
-            <ion-input
-              label="Email"
-              labelPlacement="stacked"
-              type="email"
-              [(ngModel)]="form.email"
-              name="email"
-              placeholder="your&#64;email.com"
-            ></ion-input>
+            <ion-input label="Email" labelPlacement="stacked" type="email" [(ngModel)]="form.email" name="email" placeholder="your&#64;email.com"></ion-input>
           </ion-item>
           <ion-item lines="none" class="glass-card rounded-lg">
-            <ion-input
-              label="Subject"
-              labelPlacement="stacked"
-              [(ngModel)]="form.subject"
-              name="subject"
-              placeholder="Subject"
-            ></ion-input>
+            <ion-input label="Subject" labelPlacement="stacked" [(ngModel)]="form.subject" name="subject" placeholder="Subject"></ion-input>
           </ion-item>
           <ion-item lines="none" class="glass-card rounded-lg">
-            <ion-textarea
-              label="Message"
-              labelPlacement="stacked"
-              [(ngModel)]="form.message"
-              name="message"
-              placeholder="Your message..."
-              rows="5"
-            ></ion-textarea>
+            <ion-textarea label="Message" labelPlacement="stacked" [(ngModel)]="form.message" name="message" placeholder="Your message..." rows="5"></ion-textarea>
           </ion-item>
-          <ion-button type="submit" expand="block">Send Message</ion-button>
+          <ion-button type="submit" expand="block" class="ion-margin-top">Send Message</ion-button>
         </form>
       </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-8 text-center text-slate-500 text-sm">
+    <footer class="py-8 text-center text-slate-500 text-sm" appScrollReveal>
       <p>Built with Ionic, Angular &amp; Tailwind CSS</p>
     </footer>
   </div>
+
+  @if (selectedProject(); as project) {
+    <app-project-case-study-modal
+      [project]="project"
+      (closeModal)="closeCaseStudyModal()"
+    />
+  }
 </ion-content>

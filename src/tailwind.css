@@ -5,6 +5,8 @@
  */
 @import 'tailwindcss';
 
+@custom-variant dark (&:where(.dark *));
+
 /**
  * Map Tailwind theme colors to Ionic CSS variables.
  * Use bg-primary, text-primary, etc. in components; they resolve to --ion-color-*.

@@ -70,7 +70,7 @@ export class ProjectsPage {
 
   enterpriseProjects: ProjectCardData[] = [
     {
-      title: 'Inventory Management System',
+      title: 'Inventory Management System (NDA)',
       year: '2023–2024',
       role: 'Lead Developer',
       tech: ['Ionic Angular', 'Node.js', 'PostgreSQL'],
@@ -80,8 +80,9 @@ export class ProjectsPage {
     {
       title: 'AI-Powered Feedback & Reporting System',
       year: '2025–2026',
-      role: 'Lead Developer',
-      tech: ['Ionic Angular', 'AI/ML'],
+      role: 'Frontend Developer, mobile developer',
+      tech: ['EJS, JavaScript, HTML, CSS, angular, typescript, node.js, express, mongodb, mongoose,', 'AI/ML'],
+      imageUrl: 'assets/projects/ai-feedback.gif',
       description: 'AI-driven analytics system for feedback collection, sentiment analysis, and automated reporting.',
       objectives: ['NLP-powered sentiment analysis', 'Automated report generation', 'Real-time dashboards', 'Custom AI models'],
     },
