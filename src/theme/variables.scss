@@ -1,41 +1,41 @@
 /**
- * Ionic Theme - Dark Mode First
- * IT Manager minimalist aesthetic
+ * Ionic Theme - Slate-900 + Emerald
+ * Richmond Mingi Portfolio
  * https://ionicframework.com/docs/theming/
  */
 :root {
-  /* Dark-first palette - these are fallbacks; dark.system.css overrides for dark preference */
-  --ion-color-primary: #5b9aff;
-  --ion-color-primary-rgb: 91, 154, 255;
-  --ion-color-primary-contrast: #000000;
-  --ion-color-primary-contrast-rgb: 0, 0, 0;
-  --ion-color-primary-shade: #5088e6;
-  --ion-color-primary-tint: #6ba4ff;
+  /* Emerald accent - primary */
+  --ion-color-primary: #10b981;
+  --ion-color-primary-rgb: 16, 185, 129;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #0ea372;
+  --ion-color-primary-tint: #28c08e;
 
-  --ion-color-secondary: #6c7a89;
-  --ion-color-secondary-rgb: 108, 122, 137;
-  --ion-color-secondary-contrast: #ffffff;
-  --ion-color-secondary-contrast-rgb: 255, 255, 255;
+  --ion-color-secondary: #34d399;
+  --ion-color-secondary-rgb: 52, 211, 153;
+  --ion-color-secondary-contrast: #0f172a;
+  --ion-color-secondary-contrast-rgb: 15, 23, 42;
 
-  --ion-color-tertiary: #3dc2ff;
-  --ion-color-tertiary-rgb: 61, 194, 255;
-  --ion-color-tertiary-contrast: #000000;
-  --ion-color-tertiary-contrast-rgb: 0, 0, 0;
+  --ion-color-tertiary: #6ee7b7;
+  --ion-color-tertiary-rgb: 110, 231, 183;
+  --ion-color-tertiary-contrast: #0f172a;
+  --ion-color-tertiary-contrast-rgb: 15, 23, 42;
 
-  --ion-background-color: #0f0f12;
-  --ion-background-color-rgb: 15, 15, 18;
-  --ion-text-color: #e4e6eb;
-  --ion-text-color-rgb: 228, 230, 235;
+  /* Slate-900 background */
+  --ion-background-color: #0f172a;
+  --ion-background-color-rgb: 15, 23, 42;
+  --ion-text-color: #f1f5f9;
+  --ion-text-color-rgb: 241, 245, 249;
 
   --ion-font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
-/* Light mode override (when user prefers light) */
 @media (prefers-color-scheme: light) {
   :root {
     --ion-background-color: #ffffff;
     --ion-background-color-rgb: 255, 255, 255;
-    --ion-text-color: #1c1e21;
-    --ion-text-color-rgb: 28, 30, 33;
+    --ion-text-color: #0f172a;
+    --ion-text-color-rgb: 15, 23, 42;
   }
 }

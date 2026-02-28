@@ -7,30 +7,15 @@ export const routes: Routes = [
     component: MainLayoutComponent,
     children: [
       {
-        path: 'home',
-        loadComponent: () =>
-          import('./home/home.page').then((m) => m.HomePage),
-      },
-      {
-        path: 'projects',
-        loadComponent: () =>
-          import('./projects/projects.page').then((m) => m.ProjectsPage),
-      },
-      {
-        path: 'experience',
-        loadComponent: () =>
-          import('./experience/experience.page').then((m) => m.ExperiencePage),
-      },
-      {
         path: '',
-        redirectTo: 'home',
-        pathMatch: 'full',
+        loadComponent: () =>
+          import('./portfolio/portfolio.page').then((m) => m.PortfolioPage),
       },
     ],
   },
   {
     path: '**',
-    redirectTo: 'home',
+    redirectTo: '',
     pathMatch: 'full',
   },
 ];

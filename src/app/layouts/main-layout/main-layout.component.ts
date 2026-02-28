@@ -1,69 +1,19 @@
 import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
-import {
-  IonApp,
-  IonSplitPane,
-  IonMenu,
-  IonHeader,
-  IonToolbar,
-  IonTitle,
-  IonContent,
-  IonList,
-  IonItem,
-  IonLabel,
-  IonIcon,
-  IonTabs,
-  IonTabBar,
-  IonTabButton,
-  IonRouterOutlet,
-  MenuController,
-} from '@ionic/angular/standalone';
-import { addIcons } from 'ionicons';
-import {
-  homeOutline,
-  folderOutline,
-  briefcaseOutline,
-} from 'ionicons/icons';
-import { LayoutService } from '../../core/services/layout.service';
+import { IonApp, IonRouterOutlet } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-main-layout',
   standalone: true,
   templateUrl: './main-layout.component.html',
   styleUrls: ['./main-layout.component.scss'],
-  imports: [
-    RouterLink,
-    RouterLinkActive,
-    IonApp,
-    IonSplitPane,
-    IonMenu,
-    IonHeader,
-    IonToolbar,
-    IonTitle,
-    IonContent,
-    IonList,
-    IonItem,
-    IonLabel,
-    IonIcon,
-    IonTabs,
-    IonTabBar,
-    IonTabButton,
-    IonRouterOutlet,
-  ],
+  imports: [IonApp, IonRouterOutlet],
 })
 export class MainLayoutComponent {
-  constructor(
-    public layout: LayoutService,
-    private menu: MenuController
-  ) {
-    addIcons({ homeOutline, folderOutline, briefcaseOutline });
+  toggleMobileMenu(): void {
+    document.querySelector('.sidebar')?.classList.toggle('mobile-open');
   }
 
-  getTabName(path: string): string {
-    return path.replace(/^\//, '') || 'home';
-  }
-
-  closeMenu(): void {
-    this.menu.close();
+  onNavClick(): void {
+    document.querySelector('.sidebar')?.classList.remove('mobile-open');
   }
 }

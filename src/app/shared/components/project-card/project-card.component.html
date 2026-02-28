@@ -1,0 +1,36 @@
+<ion-card class="glass-card rounded-xl overflow-hidden ion-no-margin transition-all duration-300 hover:border-emerald-500/30">
+  <ion-card-header class="pb-2">
+    <div class="flex flex-wrap items-center gap-2 mb-1">
+      <ion-card-title class="text-lg font-semibold text-slate-100">{{ project().title }}</ion-card-title>
+      <span class="text-xs font-medium text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded">{{ project().year }}</span>
+    </div>
+    <p class="text-sm text-slate-400">{{ project().role }}</p>
+  </ion-card-header>
+  <ion-card-content class="pt-0">
+    <div class="flex flex-wrap gap-1.5 mb-3">
+      @for (tech of project().tech; track tech) {
+        <span class="text-xs px-2 py-1 rounded-md bg-slate-700/50 text-slate-300">{{ tech }}</span>
+      }
+    </div>
+    <p class="text-sm text-slate-400 leading-relaxed mb-3">{{ project().description }}</p>
+    @if (project().objectives.length) {
+      <div>
+        <button
+          type="button"
+          (click)="toggleObjectives()"
+          class="text-sm font-medium text-emerald-400 hover:text-emerald-300 transition-colors flex items-center gap-1"
+        >
+          {{ isExpanded ? 'Hide' : 'View' }} Objectives
+          <span class="inline-block transition-transform duration-200" [class.rotate-180]="isExpanded">▼</span>
+        </button>
+        @if (isExpanded) {
+          <ul class="mt-2 pl-4 space-y-1 text-sm text-slate-500 list-disc animate-fade-in">
+            @for (obj of project().objectives; track obj) {
+              <li>{{ obj }}</li>
+            }
+          </ul>
+        }
+      </div>
+    }
+  </ion-card-content>
+</ion-card>

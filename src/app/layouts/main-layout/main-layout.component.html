@@ -1,45 +1,26 @@
-<ion-app>
-  <ion-split-pane contentId="main-content" when="md">
-    <!-- Sidebar - visible on md+ breakpoint -->
-    <ion-menu contentId="main-content" type="overlay" class="ion-padding-top">
-      <ion-content class="ion-padding">
-        <ion-header class="ion-no-border ion-padding-bottom">
-          <ion-toolbar class="ion-no-border">
-            <ion-title class="text-base font-semibold">
-              Portfolio
-            </ion-title>
-          </ion-toolbar>
-        </ion-header>
-        <ion-list lines="none" class="ion-no-padding">
-          @for (item of layout.navItems; track item.path) {
-            <ion-item
-              [routerLink]="item.path"
-              routerLinkActive="active"
-              button
-              detail="false"
-              (click)="closeMenu()"
-              class="rounded-lg ion-margin-bottom nav-item"
-            >
-              <ion-icon [name]="item.icon" slot="start"></ion-icon>
-              <ion-label>{{ item.label }}</ion-label>
-            </ion-item>
-          }
-        </ion-list>
-      </ion-content>
-    </ion-menu>
+<ion-app class="brittany-layout">
+  <aside class="sidebar">
+    <a href="#" class="logo">RM</a>
+    <nav class="nav-links">
+      <a href="#about" class="nav-link" (click)="onNavClick()">About</a>
+      <a href="#experience" class="nav-link" (click)="onNavClick()">Experience</a>
+      <a href="#projects" class="nav-link" (click)="onNavClick()">Projects</a>
+      <a href="#education" class="nav-link" (click)="onNavClick()">Education</a>
+      <a href="#contact" class="nav-link" (click)="onNavClick()">Contact</a>
+    </nav>
+    <div class="social-links">
+      <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub">GitHub</a>
+      <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">LinkedIn</a>
+    </div>
+  </aside>
 
-    <!-- Main content + bottom tabs -->
-    <ion-tabs id="main-content" class="main-content">
-      <ion-router-outlet></ion-router-outlet>
-      <!-- Bottom tab bar - visible on mobile (hidden on md+) -->
-      <ion-tab-bar slot="bottom" class="tab-bar-mobile">
-        @for (item of layout.navItems; track item.path) {
-          <ion-tab-button [tab]="getTabName(item.path)" [routerLink]="item.path">
-            <ion-icon [name]="item.icon"></ion-icon>
-            <ion-label>{{ item.label }}</ion-label>
-          </ion-tab-button>
-        }
-      </ion-tab-bar>
-    </ion-tabs>
-  </ion-split-pane>
+  <main class="main-content">
+    <ion-router-outlet></ion-router-outlet>
+  </main>
+
+  <button type="button" class="menu-toggle" (click)="toggleMobileMenu()" aria-label="Toggle menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </ion-app>

@@ -16,8 +16,11 @@ export class LayoutService {
 
   readonly navItems: NavItem[] = [
     { path: '/home', label: 'Home', icon: 'home-outline' },
+    { path: '/about', label: 'About', icon: 'person-outline' },
     { path: '/projects', label: 'Projects', icon: 'folder-outline' },
     { path: '/experience', label: 'Experience', icon: 'briefcase-outline' },
+    { path: '/education', label: 'Education', icon: 'school-outline' },
+    { path: '/contact', label: 'Contact', icon: 'mail-outline' },
   ];
 
   toggleSidebar(): void {

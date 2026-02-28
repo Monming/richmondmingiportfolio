@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import {
   IonHeader,
   IonToolbar,
@@ -9,10 +10,6 @@ import {
   IonGrid,
   IonRow,
   IonCol,
-  IonCard,
-  IonCardHeader,
-  IonCardTitle,
-  IonCardContent,
 } from '@ionic/angular/standalone';
 
 @Component({
@@ -20,6 +17,7 @@ import {
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
   imports: [
+    RouterLink,
     IonHeader,
     IonToolbar,
     IonTitle,
@@ -29,10 +27,6 @@ import {
     IonGrid,
     IonRow,
     IonCol,
-    IonCard,
-    IonCardHeader,
-    IonCardTitle,
-    IonCardContent,
   ],
 })
 export class HomePage {

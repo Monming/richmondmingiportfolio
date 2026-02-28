@@ -1,4 +1,4 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="true" class="ion-no-border">
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
@@ -10,22 +10,43 @@
 <ion-content [fullscreen]="true" class="ion-padding">
   <ion-grid>
     <ion-row>
-      <ion-col size="12" size-md="8" offset-md="2">
-        <div class="page-content">
-          <h1 class="text-2xl font-semibold mb-4">Projects</h1>
-          <p class="text-step-550 leading-relaxed mb-6">
-            Key initiatives and technical deliverables.
-          </p>
-          <ion-card class="ion-no-margin">
-            <ion-card-header>
-              <ion-card-title>Project Placeholder</ion-card-title>
-            </ion-card-header>
-            <ion-card-content>
-              <p class="text-step-550">
-                Skeleton content. Add project cards with tech stack, outcomes, links.
-              </p>
-            </ion-card-content>
-          </ion-card>
+      <ion-col size="12" size-md="10" offset-md="1">
+        <div class="page-content py-8 md:py-12 space-y-12">
+          <section>
+            <h2 class="text-2xl font-semibold text-slate-100 mb-4 flex items-center gap-2">
+              <span class="w-1 h-6 bg-emerald-500 rounded"></span>
+              College Projects
+            </h2>
+            <div class="space-y-6">
+              @for (project of collegeProjects; track project.title) {
+                <app-project-card [project]="project" />
+              }
+            </div>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-semibold text-slate-100 mb-4 flex items-center gap-2">
+              <span class="w-1 h-6 bg-emerald-500 rounded"></span>
+              Confidential Projects (NDA)
+            </h2>
+            <div class="space-y-6">
+              @for (project of confidentialProjects; track project.title) {
+                <app-project-card [project]="project" />
+              }
+            </div>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-semibold text-slate-100 mb-4 flex items-center gap-2">
+              <span class="w-1 h-6 bg-emerald-500 rounded"></span>
+              Enterprise Projects
+            </h2>
+            <div class="space-y-6">
+              @for (project of enterpriseProjects; track project.title) {
+                <app-project-card [project]="project" />
+              }
+            </div>
+          </section>
         </div>
       </ion-col>
     </ion-row>

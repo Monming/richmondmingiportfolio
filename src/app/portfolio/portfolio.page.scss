@@ -1,0 +1,52 @@
+.portfolio-content {
+  --background: transparent;
+}
+
+.portfolio-sections {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section-inner {
+  max-width: 100%;
+}
+
+.section-heading {
+  .section-num {
+    font-family: 'SF Mono', 'Fira Code', 'Fira Mono', monospace;
+  }
+}
+
+.hero-greeting {
+  font-family: 'SF Mono', 'Fira Code', 'Fira Mono', monospace;
+}
+
+.btn-primary {
+  background: var(--ion-color-primary);
+  color: white;
+  text-decoration: none;
+  transition: all 0.2s;
+
+  &:hover {
+    background: var(--ion-color-primary-shade);
+    transform: translateY(-2px);
+  }
+}
+
+.btn-secondary {
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  color: var(--ion-text-color);
+  text-decoration: none;
+  transition: all 0.2s;
+
+  &:hover {
+    border-color: var(--ion-color-primary);
+    color: var(--ion-color-primary);
+  }
+}
+
+ion-item {
+  --background: transparent;
+  --border-width: 0;
+}

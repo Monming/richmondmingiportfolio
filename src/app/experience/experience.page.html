@@ -1,31 +1,45 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="true" class="ion-no-border">
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Experience</ion-title>
+    <ion-title>Work Experience</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding">
   <ion-grid>
     <ion-row>
-      <ion-col size="12" size-md="8" offset-md="2">
-        <div class="page-content">
-          <h1 class="text-2xl font-semibold mb-4">Experience</h1>
-          <p class="text-step-550 leading-relaxed mb-6">
-            Career timeline and leadership highlights.
-          </p>
-          <ion-card class="ion-no-margin">
+      <ion-col size="12" size-md="10" offset-md="1">
+        <div class="page-content py-8 md:py-12">
+          <ion-card class="glass-card rounded-xl ion-no-margin mb-6">
             <ion-card-header>
-              <ion-card-title>Role Placeholder</ion-card-title>
+              <ion-card-title class="text-2xl text-slate-100 flex items-center gap-2">
+                <span class="text-emerald-400">Ascendant Global Inc.</span>
+              </ion-card-title>
             </ion-card-header>
-            <ion-card-content>
-              <p class="text-step-550">
-                Skeleton content. Add roles, dates, responsibilities, achievements.
-              </p>
-            </ion-card-content>
           </ion-card>
+
+          @for (role of roles; track role.title) {
+            <ion-card class="glass-card rounded-xl ion-no-margin mb-6">
+              <ion-card-header>
+                <div class="flex flex-wrap items-center justify-between gap-2">
+                  <ion-card-title class="text-xl text-slate-100">{{ role.title }}</ion-card-title>
+                  <span class="text-sm text-emerald-400 font-medium">{{ role.period }}</span>
+                </div>
+              </ion-card-header>
+              <ion-card-content>
+                <ul class="space-y-2">
+                  @for (resp of role.responsibilities; track resp) {
+                    <li class="flex items-start gap-2 text-slate-400">
+                      <span class="text-emerald-400 mt-1">•</span>
+                      <span>{{ resp }}</span>
+                    </li>
+                  }
+                </ul>
+              </ion-card-content>
+            </ion-card>
+          }
         </div>
       </ion-col>
     </ion-row>
