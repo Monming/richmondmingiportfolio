@@ -29,7 +29,7 @@ export class SkillsSectionComponent implements OnInit, OnDestroy {
   readonly skills = signal<SkillItem[]>([
     { name: 'Node.js & Express', level: 90, width: '0%' },
     { name: 'MongoDB (Aggregation & Schema Design)', level: 85, width: '0%' },
-    { name: 'Frontend (EJS, Tailwind, Chart.js)', level: 95, width: '0%' },
+    { name: 'Frontend (Angular, EJS, Tailwind, Chart.js)', level: 95, width: '0%' },
     { name: 'Data Visualization & Dashboard UI', level: 90, width: '0%' },
     { name: 'Version Control (Git/GitHub)', level: 88, width: '0%' },
   ]);

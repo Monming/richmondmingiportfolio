@@ -2,11 +2,13 @@
   "name": "my-portfolio",
   "version": "0.0.1",
   "author": "Ionic Framework",
-  "homepage": "https://ionicframework.com/",
+  "homepage": "https://monming.github.io/richmondmingiportfolio/",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:github": "ng build --configuration=github",
+    "deploy": "npm run build:github && npx gh-pages -d www",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint"

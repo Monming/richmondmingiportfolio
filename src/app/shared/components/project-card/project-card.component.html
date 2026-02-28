@@ -1,7 +1,16 @@
 <ion-card class="glass-card project-card rounded-xl overflow-hidden ion-no-margin transition-all duration-300 hover:border-emerald-500/30 hover:shadow-lg hover:shadow-emerald-500/10 hover:-translate-y-1">
   @if (project().imageUrl) {
     <div class="relative w-full h-36 overflow-hidden bg-slate-800/50">
-      <img [src]="project().imageUrl" [alt]="project().title" class="w-full h-full object-cover object-top" />
+      <img
+        [src]="project().imageUrl"
+        [alt]="project().title"
+        loading="lazy"
+        decoding="async"
+        draggable="false"
+        (dragstart)="$event.preventDefault()"
+        (contextmenu)="$event.preventDefault()"
+        class="w-full h-full object-cover object-top select-none"
+      />
     </div>
   }
   <ion-card-header class="pb-2">
